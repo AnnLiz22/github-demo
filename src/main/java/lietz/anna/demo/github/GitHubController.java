@@ -1,6 +1,7 @@
 package lietz.anna.demo.github;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,10 +13,11 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/github")
+@RequiredArgsConstructor
+
 public class GitHubController {
 
-    @Autowired
-    private GitHubService gitHubService;
+    private final GitHubService gitHubService;
 
     @GetMapping(value = "/repositories/{username}", produces = "application/json")
     public ResponseEntity<?> getRepositoriesWithBranches(@PathVariable String username) {
