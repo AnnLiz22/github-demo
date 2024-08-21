@@ -3,7 +3,6 @@ package lietz.anna.demo.github;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +19,7 @@ public class GitHubController {
     private final GitHubService gitHubService;
 
     @GetMapping(value = "/repositories/{username}", produces = "application/json")
-    public ResponseEntity<?> getRepositoriesWithBranches(@PathVariable String username) {
+    public ResponseEntity<Object> getRepositoriesWithBranches(@PathVariable String username) {
         try {
             Map<Map<String, String>, Map<String, String>> repoBranchCommits = gitHubService.getRepositoriesWithBranches(username);
 
