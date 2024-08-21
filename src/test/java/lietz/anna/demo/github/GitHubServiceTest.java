@@ -1,5 +1,6 @@
 package lietz.anna.demo.github;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.kohsuke.github.GHRepository;
 
@@ -10,14 +11,15 @@ import java.io.IOException;
 import java.util.List;
 
 @SpringBootTest
-public class GitHubServiceTest {
+ class GitHubServiceTest {
 
     @Autowired
     private GitHubService gitHubService;
     @Test
-    public void testGetRepositoryDetails() throws IOException, UserNotFoundException {
+     void testGetRepositoryDetails() throws IOException, UserNotFoundException {
         String username = "AnnLiz22";
         List<GHRepository> repos = gitHubService.getRepositoryDetails(username);
         repos.forEach(repo -> System.out.println(repo.getName()));
+        Assertions.assertNotNull(repos);
     }
 }
