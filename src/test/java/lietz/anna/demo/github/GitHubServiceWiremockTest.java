@@ -5,7 +5,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
@@ -35,11 +35,10 @@ class GitHubServiceWiremockTest {
                                         .withBody("{\"Workshop-2\": \"AnnLiz22\"}")
                         ));
         RestTemplate restTemplate = new RestTemplate();
-        HttpStatusCode statusCode = restTemplate.getForEntity(wireMockServer.baseUrl() + "/api/github/repositories/AnnLiz22", String.class).getStatusCode();
-        String body = restTemplate.getForEntity(wireMockServer.baseUrl() + "/api/github/repositories/AnnLiz22", String.class).getBody();
+        String url = wireMockServer.baseUrl() + "/api/github/repositories/AnnLiz22";
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 
-        assertThat(statusCode).isEqualTo(HttpStatusCode.valueOf(200));
-        assertThat(body).isEqualTo("{\"Workshop-2\": \"AnnLiz22\"}");
-
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).isEqualTo("{\"Workshop-2\": \"AnnLiz22\"}");
     }
 }
