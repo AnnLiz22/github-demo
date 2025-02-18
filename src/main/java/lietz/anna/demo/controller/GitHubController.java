@@ -3,7 +3,7 @@ package lietz.anna.demo.controller;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
-import lietz.anna.demo.github.UserNotFoundException;
+import lietz.anna.demo.exception.UserNotFoundException;
 import lietz.anna.demo.model.GitHubUser;
 import lietz.anna.demo.service.GitHubService;
 import lombok.Getter;
