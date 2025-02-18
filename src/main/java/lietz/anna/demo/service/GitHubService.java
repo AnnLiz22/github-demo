@@ -1,6 +1,6 @@
 package lietz.anna.demo.service;
 
-import lietz.anna.demo.github.UserNotFoundException;
+import lietz.anna.demo.exception.UserNotFoundException;
 import lietz.anna.demo.model.GitHubUser;
 import lietz.anna.demo.model.RepositoryInfo;
 import org.kohsuke.github.GHBranch;
