@@ -1,5 +1,6 @@
-package lietz.anna.demo.github;
+package lietz.anna.demo.service;
 
+import lietz.anna.demo.service.GitHubService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
