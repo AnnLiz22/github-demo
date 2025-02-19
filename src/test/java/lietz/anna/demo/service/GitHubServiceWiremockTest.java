@@ -1,4 +1,4 @@
-package lietz.anna.demo.github;
+package lietz.anna.demo.service;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import org.junit.jupiter.api.AfterAll;
